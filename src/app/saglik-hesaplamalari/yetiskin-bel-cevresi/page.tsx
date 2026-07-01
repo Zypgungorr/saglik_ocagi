@@ -104,7 +104,7 @@ export default function WaistCircumference() {
 
         {/* Info Note */}
         <div className="mt-12 pt-4 border-t border-gray-100 text-sm text-gray-500 leading-relaxed">
-           <p className="mb-2 font-medium">Dünya Sağlık Örgütü'ne göre risk sınırları:</p>
+           <p className="mb-2 font-medium">Dünya Sağlık Örgütü&apos;ne göre risk sınırları:</p>
            <ul className="list-disc pl-5 space-y-1">
              <li><strong>Erkekler için:</strong> 94 cm ve üzeri riskli, 102 cm ve üzeri yüksek riskli.</li>
              <li><strong>Kadınlar için:</strong> 80 cm ve üzeri riskli, 88 cm ve üzeri yüksek riskli kabul edilir.</li>

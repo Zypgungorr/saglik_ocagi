@@ -44,12 +44,6 @@ export default function Navbar() {
     closeTimerRef.current = setTimeout(() => setOpenDropdown(null), CLOSE_DELAY);
   };
 
-  useEffect(() => {
-    closeDropdown();
-    setIsOpen(false);
-    setOpenMobileSection(null);
-  }, [pathname]);
-
   useEffect(() => () => clearTimers(), []);
 
   useEffect(() => {
@@ -66,7 +60,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="bg-white border-b border-lacivert/10 shadow-sm sticky top-0 z-50">
+    <div key={pathname} className="bg-white border-b border-lacivert/10 shadow-sm sticky top-0 z-50">
       <div className="container mx-auto max-w-6xl">
         <div
           className={`md:hidden px-4 flex justify-between items-center min-h-[52px] border-b transition-colors ${

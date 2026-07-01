@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 
@@ -40,12 +40,9 @@ const services = [
 
 export default function ServicesSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const [videoId, setVideoId] = useState<string | null>(null);
-
-  useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * YOUTUBE_VIDEOS.length);
-    setVideoId(YOUTUBE_VIDEOS[randomIndex]);
-  }, []);
+  const [videoId] = useState(
+    () => YOUTUBE_VIDEOS[Math.floor(Math.random() * YOUTUBE_VIDEOS.length)]
+  );
 
   const toggleService = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -94,19 +91,13 @@ export default function ServicesSection() {
           </ScrollReveal>
 
           <ScrollReveal variant="right" delay={200} className="w-full aspect-video bg-gray-100 rounded-lg overflow-hidden shadow-md order-1 md:order-2">
-            {videoId ? (
-              <iframe
-                className="w-full h-full"
-                src={`https://www.youtube.com/embed/${videoId}`}
-                title="Sağlık kamu spotu"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center text-lacivert-light text-sm">
-                Video yükleniyor...
-              </div>
-            )}
+            <iframe
+              className="w-full h-full"
+              src={`https://www.youtube.com/embed/${videoId}`}
+              title="Sağlık kamu spotu"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
           </ScrollReveal>
         </div>
       </div>
