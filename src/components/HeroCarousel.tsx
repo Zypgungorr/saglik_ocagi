@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from 'react';
-import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { heroSlides, heroImageVersion } from '@/data/hero-slides';
 
@@ -34,14 +33,12 @@ export default function HeroCarousel() {
             <div key={item.id} className="relative w-full shrink-0">
               <div className="relative w-full h-[240px] sm:h-[320px] md:h-[400px] lg:h-[440px]">
                 {!imageErrors[item.id] ? (
-                  <Image
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
                     src={`${item.image}?v=${heroImageVersion}`}
                     alt={item.alt}
-                    fill
-                    className="object-cover object-center"
-                    priority={item.id === 1}
-                    sizes="100vw"
-                    unoptimized
+                    className="absolute inset-0 h-full w-full object-cover object-center"
+                    loading={item.id === 1 ? 'eager' : 'lazy'}
                     onError={() => setImageErrors((prev) => ({ ...prev, [item.id]: true }))}
                   />
                 ) : (

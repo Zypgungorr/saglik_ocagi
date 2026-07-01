@@ -1,15 +1,17 @@
 "use client";
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 
-const YOUTUBE_VIDEOS = [
-  '7lypV97ovyc',
-  'aG6uUhiWAPA',
-  'zgrwh9S2oz0',
-  'd-1kyKSVmvw',
-  'lQYug_yWHC8',
-];
+const YoutubeEmbed = dynamic(() => import('@/components/YoutubeEmbed'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center text-lacivert-light text-sm">
+      Video yükleniyor...
+    </div>
+  ),
+});
 
 const services = [
   {
@@ -40,9 +42,6 @@ const services = [
 
 export default function ServicesSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const [videoId] = useState(
-    () => YOUTUBE_VIDEOS[Math.floor(Math.random() * YOUTUBE_VIDEOS.length)]
-  );
 
   const toggleService = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -91,13 +90,7 @@ export default function ServicesSection() {
           </ScrollReveal>
 
           <ScrollReveal variant="right" delay={200} className="w-full aspect-video bg-gray-100 rounded-lg overflow-hidden shadow-md order-1 md:order-2">
-            <iframe
-              className="w-full h-full"
-              src={`https://www.youtube.com/embed/${videoId}`}
-              title="Sağlık kamu spotu"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+            <YoutubeEmbed />
           </ScrollReveal>
         </div>
       </div>
