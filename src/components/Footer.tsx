@@ -14,8 +14,8 @@ export default function Footer() {
               34788 Çekmeköy/İSTANBUL
               </p>
               <p>
-                <a href="tel:02163124176" className="hover:text-white transition-colors py-1 inline-block">
-                  Telefon: 0 216 312 41 76
+                <a href="tel:05519262257" className="hover:text-white transition-colors py-1 inline-block">
+                  Telefon: 0551 926 22 57
                 </a>
               </p>
             </div>
