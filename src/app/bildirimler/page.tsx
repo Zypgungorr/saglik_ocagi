@@ -51,7 +51,7 @@ export default function BildirimlerPage() {
         </p>
         <p className="text-sm">
           <span className="text-lacivert-light">Telefon: </span>
-          <a href="tel:02163124176" className="text-bordo hover:underline">0 216 312 41 76</a>
+          <a href="tel:05519262257" className="text-bordo hover:underline">0551 926 22 57 </a>
         </p>
         <p className="text-sm">
           <span className="text-lacivert-light">E-posta: </span>

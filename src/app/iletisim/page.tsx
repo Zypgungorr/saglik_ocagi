@@ -17,8 +17,8 @@ const contactItems = [
   {
     icon: Phone,
     title: 'Telefon',
-    content: '0 216 312 41 76',
-    href: 'tel:02163124176',
+    content: '0551 926 22 57',
+    href: 'tel:05519262257',
     linkLabel: 'Hemen ara',
   },
   {
